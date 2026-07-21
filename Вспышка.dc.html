@@ -21,6 +21,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{background:#FBF4E4}
+h1,h2{font-feature-settings:'liga' 0,'dlig' 0,'clig' 0,'calt' 0;font-variant-ligatures:none}
 body{font-family:'Montserrat',sans-serif;color:#211a17;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:#ED179A;text-decoration:none}
 a:hover{color:#E8461E}
@@ -32,6 +33,34 @@ a:hover{color:#E8461E}
 @keyframes spinSlow{from{transform:rotate(0)}to{transform:rotate(360deg)}}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(10px)}}
 @keyframes sheen{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+@keyframes flare{0%,100%{opacity:.5;transform:translate(-50%,-50%) scale(1)}50%{opacity:.9;transform:translate(-50%,-50%) scale(1.035)}}
+@keyframes drift{0%{background-position:0% 0%}25%{background-position:100% 20%}50%{background-position:100% 100%}75%{background-position:0% 80%}100%{background-position:0% 0%}}
+@media (max-width:768px){
+  section{padding-left:20px!important;padding-right:20px!important}
+  .deco{display:none!important}
+  [style*="min-height: 820px"]{min-height:78vh!important;padding-top:110px!important;padding-bottom:56px!important}
+  [style*="width: 1230px"]{width:104vw!important;height:138vw!important;margin:-69vw 0 0 -52vw!important}
+  [style*="width: 1188px"]{width:100vw!important;height:134vw!important;margin:-67vw 0 0 -50vw!important}
+  [style*="width: 1180px"]{width:99vw!important;height:133vw!important;margin:-66.5vw 0 0 -49.5vw!important}
+  .mg{grid-template-columns:1fr!important;gap:16px!important}
+  [style*="font-size: 70px"],[style*="font-size: 56px"],[style*="font-size: 52px"],[style*="font-size: 48px"],[style*="font-size: 46px"],[style*="font-size: 44px"]{font-size:33px!important;line-height:1.14!important}
+  [style*="font-size: 40px"]{font-size:30px!important}
+  [style*="font-size: 32px"]{font-size:23px!important;line-height:1.4!important}
+  [style*="font-size: 28px"]{font-size:19px!important}
+  [style*="font-size: 26px"]{font-size:16px!important}
+  [style*="font-size: 24px"]{font-size:17px!important}
+  [style*="font-size: 22px"]{font-size:16px!important}
+  [style*="gap: 64px"]{gap:6px!important;padding-left:12px!important;padding-right:12px!important}
+  [style*="gap: 40px"]{gap:6px!important}
+  [style*="padding: 9px 20px"]{padding:7px 12px!important;font-size:12px!important;letter-spacing:.05em!important}
+  [style*="width: 800px"]{width:82%!important}
+  [style*="width: 350px"]{width:170px!important;margin-left:0!important;margin-top:0!important}
+  [style*="padding: 70px 72px"],[style*="padding: 70px 74px"],[style*="padding: 66px 72px"],[style*="padding: 48px 46px"],[style*="padding: 46px 50px"],[style*="padding: 56px 60px"],[style*="padding: 40px 44px"]{padding:32px 24px!important}
+  [style*="padding: 80px 60px 50px"]{padding:56px 22px 40px!important}
+  [style*="height: 480px"],[style*="height: 460px"]{height:300px!important}
+  [style*="min-height: 280px"]{min-height:200px!important}
+  p{width:auto!important;max-width:100%!important}
+}
 </style>
 <script src="./image-slot.js"></script>
 </helmet>
@@ -59,19 +88,21 @@ a:hover{color:#E8461E}
     
 
     <!-- CONCEPT + BIG STARS -->
-    <section style="position:relative;min-height:820px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 40px 60px;background:#FBF4E4;overflow:hidden">
-      <div style="position:absolute;top:104px;right:0;width:230px;height:230px;opacity:.85;animation:floatB 9s ease-in-out infinite;pointer-events:none;display:flex;justify-content:flex-end"></div>
-      <div style="position:absolute;bottom:56px;left:0;width:205px;height:205px;opacity:.8;animation:floatA 11s ease-in-out infinite;pointer-events:none;display:flex;align-items:flex-end"></div>
-      <p style="font-size:26px;color:#ED179A;margin-bottom:26px;animation:fadeIn 1s ease both;animation-delay:.1s">медиа об архитектонике креативных индустрий</p>
+    <section style="position:relative;min-height:820px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 40px 60px;background:radial-gradient(90% 100% at 15% 12%,rgba(246,166,35,.62) 0%,rgba(246,166,35,0) 50%),radial-gradient(80% 90% at 85% 18%,rgba(246,195,70,.58) 0%,rgba(246,195,70,0) 52%),radial-gradient(95% 105% at 88% 88%,rgba(238,143,167,.48) 0%,rgba(238,143,167,0) 55%),radial-gradient(80% 85% at 8% 92%,rgba(246,166,35,.32) 0%,rgba(246,166,35,0) 55%),radial-gradient(75% 85% at 55% 60%,rgba(246,205,90,.4) 0%,rgba(246,205,90,0) 60%),#FDF3DA;background-size:300% 300%;animation:drift 5s ease-in-out infinite;overflow:hidden">
+      <div style="position:absolute;top:0;left:0;right:0;height:6px;background:linear-gradient(90deg,#F6A623,#EE8FA7,#E8461E,#ED179A,#F6A623);background-size:200% 100%;animation:sheen 8s linear infinite;pointer-events:none;z-index:3"></div>
+      <div style="position:absolute;top:50%;left:50%;width:1230px;height:1230px;margin:-615px 0 0 -615px;border-radius:50%;background:conic-gradient(from 0deg,#F6A623,#F6C346,#EE8FA7,#F6C346,#F6A623);filter:blur(30px);opacity:.55;animation:flare 6s ease-in-out infinite;pointer-events:none;z-index:1"></div>
+      <div style="position:absolute;top:50%;left:50%;width:1188px;height:1188px;margin:-594px 0 0 -594px;border-radius:50%;padding:2px;background:conic-gradient(from 0deg,#F6A623,#EE8FA7,#ED179A,#EE8FA7,#F6A623);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spinSlow 60s linear infinite;pointer-events:none;z-index:2"></div>
+      <div style="position:absolute;top:50%;left:50%;width:1180px;height:1180px;margin:-590px 0 0 -590px;border-radius:50%;background:#FBF4E4;pointer-events:none;z-index:1"></div>
+      <p style="position:relative;z-index:2;font-size:26px;color:#ED179A;margin-bottom:26px;animation:fadeIn 1s ease both;animation-delay:.1s">медиа об архитектонике креативных индустрий</p>
       
-      <img src="assets/logo-vspyshka.png" alt="ВСПЫШКА" style="width: 800px; max-width: 82%; object-fit: contain; animation: fadeUp 1.1s cubic-bezier(.2,.7,.2,1) both; animation-delay: .25s"><p style="max-width: 580px; font-size: 18px; line-height: 1.7; color: #5a4a42; margin-top: 20px; animation: fadeIn 1.2s ease both; animation-delay: .7s; width: 640px; height: 122px">Проект-исследование и медиа о том, как устроены креативные индустрии — через живые интервью с людьми, которые создают культурную, интеллектуальную и коммерческую ценность.</p>
-      <div style="margin-top:52px;display:flex;flex-direction:column;align-items:center;gap:10px;animation:fadeIn 1.4s ease both;animation-delay:1s">
+      <img src="assets/logo-vspyshka.png" alt="ВСПЫШКА" style="position:relative;z-index:2;width: 800px; max-width: 82%; object-fit: contain; animation: fadeUp 1.1s cubic-bezier(.2,.7,.2,1) both; animation-delay: .25s"><p style="position:relative;z-index:2;max-width: 580px; font-size: 18px; line-height: 1.7; color: #5a4a42; margin-top: 20px; animation: fadeIn 1.2s ease both; animation-delay: .7s; width: 640px; height: 122px">Проект-исследование и медиа о том, как устроены креативные индустрии — через живые интервью с людьми, которые создают культурную, интеллектуальную и коммерческую ценность.</p>
+      <div style="position:relative;z-index:2;margin-top:52px;display:flex;flex-direction:column;align-items:center;gap:10px;animation:fadeIn 1.4s ease both;animation-delay:1s">
         <span style="font-size:12px;letter-spacing:.28em;color:#9a8577">ЛИСТАЙ ВНИЗ</span>
         <div style="animation:bob 1.8s ease-in-out infinite;font-size:20px;color:#ED179A">↓</div>
       </div>
     </section><section style="position:relative;background:#FBF4E4;padding:96px 40px 150px;min-height:660px;overflow:hidden">
-      <div data-reveal="" style="position:absolute;left:0;top:56px;width:380px;height:380px;opacity:0;transform:translateY(40px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1);animation:floatA 11s ease-in-out infinite;pointer-events:none;display:flex;align-items:flex-start"><img src="assets/star-warm.png" alt="" style="height: 120%; object-fit: contain; object-position: left; margin-left: -90px"></div>
-      <div data-reveal="" style="position:absolute;right:0;bottom:36px;width:360px;height:360px;opacity:0;transform:translateY(40px);transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.2,.7,.2,1);animation:floatB 13s ease-in-out infinite;pointer-events:none;display:flex;justify-content:flex-end"><img src="assets/star-rose.png" alt="" style="height: 100%; object-fit: contain; object-position: right; width: 130%; flex-grow: 2; margin-right: -40px"></div>
+      <div data-reveal="" class="deco" style="position:absolute;left:0;top:56px;width:380px;height:380px;opacity:0;transform:translateY(40px);transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1);animation:floatA 11s ease-in-out infinite;pointer-events:none;display:flex;align-items:flex-start"><img src="assets/star-warm.png" alt="" style="height: 120%; object-fit: contain; object-position: left; margin-left: -90px"></div>
+      <div data-reveal="" class="deco" style="position:absolute;right:0;bottom:36px;width:360px;height:360px;opacity:0;transform:translateY(40px);transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.2,.7,.2,1);animation:floatB 13s ease-in-out infinite;pointer-events:none;display:flex;justify-content:flex-end"><img src="assets/star-rose.png" alt="" style="height: 100%; object-fit: contain; object-position: right; width: 130%; flex-grow: 2; margin-right: -40px"></div>
       <div style="max-width:1240px;margin:0 auto;position:relative">
         <div style="max-width:720px;margin:0 auto;text-align:center;position:relative;z-index:2">
           <span data-reveal="" style="display:inline-block;font-size:22px;color:#ED179A;margin-bottom:18px;opacity:0;transform:translateY(30px);transition:.8s">что это</span>
@@ -91,14 +122,14 @@ a:hover{color:#E8461E}
 
     <!-- VISION + BENEFIT -->
     <section style="background:#FBF4E4;padding:96px 40px 10px">
-      <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:24px">
+      <div class="mg" style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:24px">
         <div data-reveal="" style="background:#FFFDF6;border:1px solid rgba(18,16,14,.08);border-radius:24px;padding:48px 46px;opacity:0;transform:translateY(34px);transition:.85s">
           <span style="font-size:28px;color:#EE8FA7">видение</span>
           <p style="font-size: 18px; line-height: 1.6; margin-top: 16px; color: #231b16">Собрать медиа, которому доверяют как исследованию и читают как вдохновляющий, интеллектуальный и эстетичный журнал.</p>
         </div>
         <div data-reveal="" style="background:#FFFDF6;border:1px solid rgba(18,16,14,.08);border-radius:24px;padding:48px 46px;opacity:0;transform:translateY(34px);transition:.85s .08s">
           <span style="font-size:28px;color:#E8461E">выгода</span>
-          <p style="font-size: 18px; line-height: 1.6; margin-top: 16px; color: #231b16">Понимание индустрии через живой опыт — без шаблонных историй успеха.</p>
+          <p style="font-size: 18px; line-height: 1.6; margin-top: 16px; color: #231b16">Понимание индустрии через живой опыт без шаблонных историй успеха. Мы берем интервью у тех, кто "варится" в индустриях ежедневно.</p>
         </div>
       </div>
     </section>
@@ -112,7 +143,7 @@ a:hover{color:#E8461E}
             <h2 style="font-family:'Blacker';font-weight:200;text-transform:uppercase;letter-spacing:.04em;font-size:46px;margin-top:8px">Во что мы верим</h2>
           </div>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+        <div class="mg" style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
           <sc-for list="{{ values }}" as="v" hint-placeholder-count="6">
             <div data-reveal="" style="background:#FFFDF6;border:1px solid rgba(33,26,23,.07);border-radius:22px;padding:34px 30px 38px;opacity:0;transform:translateY(34px);transition:.8s;transition-delay:{{ v.delay }}">
               <span style="font-size:40px;color:#EE8FA7">{{ v.n }}</span>
@@ -128,7 +159,7 @@ a:hover{color:#E8461E}
     <section style="background:#FBF4E4;padding:70px 40px 30px">
       <div style="max-width:1240px;margin:0 auto">
         <div data-reveal="" onClick="{{ goInterviews }}" style="position:relative;overflow:hidden;border-radius:28px;background:#12100E;color:#FBF4E4;padding:70px 72px;cursor:pointer;opacity:0;transform:translateY(40px);transition:1s">
-          <div style="position:absolute;right:0;top:0;bottom:0;width:320px;opacity:.7;pointer-events:none;display:flex;align-items:center;justify-content:flex-end"><img src="assets/star-rose.png" alt="" style="height:80%;object-fit:contain;object-position:right;animation:floatB 12s ease-in-out infinite"></div>
+          <div class="deco" style="position:absolute;right:0;top:0;bottom:0;width:320px;opacity:.7;pointer-events:none;display:flex;align-items:center;justify-content:flex-end"><img src="assets/star-rose.png" alt="" style="height:80%;object-fit:contain;object-position:right;animation:floatB 12s ease-in-out infinite"></div>
           <div style="position:relative;z-index:2;max-width:700px">
             <span style="font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#F6A623">Первое интервью</span>
             <h2 style="font-family:'Blacker';font-weight:300;text-transform:uppercase;letter-spacing:.02em;font-size:44px;line-height:1.12;margin:16px 0 18px">Гастрономия как способ рассказывать истории</h2>
@@ -140,8 +171,8 @@ a:hover{color:#E8461E}
     </section>
 
     <!-- CREATOR -->
-    <section style="background:#FBF4E4;padding:40px 40px 30px">
-      <div data-reveal="" style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:230px 1fr;gap:46px;align-items:center;opacity:0;transform:translateY(30px);transition:.85s">
+    <section style="background:#FBF4E4;padding:40px 40px 92px">
+      <div data-reveal="" class="mg" style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:230px 1fr;gap:46px;align-items:center;opacity:0;transform:translateY(30px);transition:.85s">
         <div style="width:230px;height:276px;border-radius:20px;overflow:hidden"><image-slot id="home-arevik" shape="rounded" radius="20" placeholder="Фото Аревик"></image-slot></div>
         <div>
           <span style="font-size:26px;color:#ED179A">автор проекта</span>
@@ -159,14 +190,14 @@ a:hover{color:#E8461E}
   <sc-if value="{{ isArticles }}" hint-placeholder-val="{{ true }}">
   <div style="padding-top:74px">
     <section style="background:#FBF4E4;padding:96px 40px 50px;position:relative;overflow:visible">
-      <div style="position:absolute;right:0;top:64px;width:230px;height:230px;opacity:.85;animation:floatB 11s ease-in-out infinite;pointer-events:none;display:flex;justify-content:flex-end"><img src="assets/star-rose.png" alt="" style="height:100%;object-fit:contain;object-position:right"></div>
+      <div class="deco" style="position:absolute;right:0;top:64px;width:230px;height:230px;opacity:.85;animation:floatB 11s ease-in-out infinite;pointer-events:none;display:flex;justify-content:flex-end"><img src="assets/star-rose.png" alt="" style="height:100%;object-fit:contain;object-position:right"></div>
       <div style="max-width:1240px;margin:0 auto">
         <span data-reveal="" style="font-size:26px;color:#ED179A;opacity:0;transform:translateY(20px);transition:.7s">статьи</span>
         <h1 data-reveal="" style="font-family:'Blacker';font-weight:200;text-transform:uppercase;letter-spacing:.03em;font-size:70px;margin-top:8px;opacity:0;transform:translateY(40px);transition:.9s">Читать медленно</h1>
       </div>
     </section>
     <section style="background:#FBF4E4;padding:30px 40px 120px">
-      <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:26px">
+      <div class="mg" style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:26px">
         <sc-for list="{{ articles }}" as="a" hint-placeholder-count="3">
           <div data-reveal="" onClick="{{ a.open }}" style="cursor:pointer;background:#FFFDF6;border:1px solid rgba(33,26,23,.07);border-radius:22px;overflow:hidden;opacity:0;transform:translateY(36px);transition:.85s;transition-delay:{{ a.delay }}">
             <div style="height:220px"><image-slot id="{{ a.slot }}" shape="rect" placeholder="Обложка статьи"></image-slot></div>
@@ -194,14 +225,14 @@ a:hover{color:#E8461E}
       </div>
     </section>
     <section style="padding:24px 40px 20px">
-      <div style="max-width:960px;margin:0 auto;height:460px;border-radius:24px;overflow:hidden"><image-slot id="{{ cur.slot }}" shape="rect" placeholder="Фотография к статье"></image-slot></div>
+      <div data-reveal="" style="max-width:960px;margin:0 auto;height:460px;border-radius:24px;overflow:hidden;opacity:0;transform:translateY(40px);transition:1s"><image-slot id="{{ cur.slot }}" shape="rect" placeholder="Фотография к статье"></image-slot></div>
     </section>
     <section style="padding:44px 40px 120px">
       <div style="max-width:720px;margin:0 auto">
         <sc-for list="{{ cur.body }}" as="p" hint-placeholder-count="4">
           <p style="font-size:19px;line-height:1.85;color:#332721;margin-bottom:26px">{{ p }}</p>
         </sc-for>
-        <div style="border-left:3px solid #ED179A;padding-left:26px;margin:40px 0">
+        <div data-reveal="" style="border-left:3px solid #ED179A;padding-left:26px;margin:40px 0;opacity:0;transform:translateX(-26px);transition:.9s">
           <p style="font-size:28px;line-height:1.4;color:#12100E">{{ cur.pull }}</p>
         </div>
       </div>
@@ -213,7 +244,7 @@ a:hover{color:#E8461E}
   <sc-if value="{{ isInterviews }}" hint-placeholder-val="{{ true }}">
   <div style="padding-top:74px">
     <section style="background:#FBF4E4;padding:96px 40px 50px;position:relative;overflow:visible">
-      <div style="position:absolute;right:0;top:60px;width:240px;height:240px;opacity:.85;animation:floatA 12s ease-in-out infinite;pointer-events:none;display:flex;justify-content:flex-end"><img src="assets/star-rose.png" alt="" style="height: 200%; object-fit: contain; object-position: right; width: 500px; margin-top: -100px; margin-right: -40px"></div>
+      <div class="deco" style="position:absolute;right:0;top:60px;width:240px;height:240px;opacity:.85;animation:floatA 12s ease-in-out infinite;pointer-events:none;display:flex;justify-content:flex-end"><img src="assets/star-rose.png" alt="" style="height: 200%; object-fit: contain; object-position: right; width: 500px; margin-top: -100px; margin-right: -40px"></div>
       
     <div style="max-width:1240px;margin:0 auto">
         <span data-reveal="" style="font-size:26px;color:#ED179A;opacity:0;transform:translateY(20px);transition:.7s">интервью</span>
@@ -223,7 +254,7 @@ a:hover{color:#E8461E}
     <section style="background:#FBF4E4;padding:30px 40px 120px">
       <div style="max-width:1240px;margin:0 auto;display:flex;flex-direction:column;gap:24px">
         <sc-for list="{{ interviews }}" as="iv" hint-placeholder-count="1">
-          <div data-reveal="" onClick="{{ iv.open }}" style="cursor:pointer;display:grid;grid-template-columns:340px 1fr;gap:0;background:#FFFDF6;border:1px solid rgba(33,26,23,.07);border-radius:24px;overflow:hidden;opacity:0;transform:translateY(34px);transition:.85s">
+          <div data-reveal="" onClick="{{ iv.open }}" class="mg" style="cursor:pointer;display:grid;grid-template-columns:340px 1fr;gap:0;background:#FFFDF6;border:1px solid rgba(33,26,23,.07);border-radius:24px;overflow:hidden;opacity:0;transform:translateY(34px);transition:.85s">
             <div style="min-height:280px"><image-slot id="{{ iv.slot }}" shape="rect" placeholder="Фото героя"></image-slot></div>
             <div style="padding:46px 50px;display:flex;flex-direction:column;justify-content:center">
               <span style="font-size:12px;letter-spacing:.16em;color:#EE8FA7">{{ iv.tag }} · {{ iv.date }}</span>
@@ -253,14 +284,14 @@ a:hover{color:#E8461E}
       </div>
     </section>
     <section style="padding:0 40px 20px">
-      <div style="max-width:1040px;margin:0 auto;height:480px;border-radius:26px;overflow:hidden;position:relative">
+      <div data-reveal="" style="max-width:1040px;margin:0 auto;height:480px;border-radius:26px;overflow:hidden;position:relative;opacity:0;transform:translateY(40px);transition:1s">
         <image-slot id="{{ cur.slot }}" shape="rect" placeholder="Фотография героя"></image-slot>
       </div>
     </section>
 
     <section style="padding:44px 40px 10px">
       <div style="max-width:760px;margin:0 auto">
-        <div style="display:flex;align-items:center;gap:16px;margin-bottom:26px">
+        <div data-reveal="" style="display:flex;align-items:center;gap:16px;margin-bottom:26px;opacity:0;transform:translateY(28px);transition:.8s">
           <img src="assets/star-hand.png" alt="" style="width:56px;height:56px;object-fit:contain">
           <div>
             <div style="font-weight:600;font-size:19px">{{ cur.name }}</div>
@@ -281,7 +312,7 @@ a:hover{color:#E8461E}
     <section style="padding:26px 40px 20px">
       <div style="max-width:1040px;margin:0 auto">
         <span style="font-size:22px;color:#ED179A;display:block;text-align:center;margin-bottom:26px">топ цитат</span>
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px">
+        <div data-reveal="" class="mg" style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;opacity:0;transform:translateY(34px);transition:.9s">
           <sc-for list="{{ cur.quotes }}" as="q" hint-placeholder-count="3">
             <div style="background:#FFFDF6;border:1px solid rgba(33,26,23,.07);border-radius:22px;padding:34px 30px;position:relative">
               <span style="font-size:60px;color:#EE8FA7;line-height:.6">“</span>
@@ -333,7 +364,7 @@ a:hover{color:#E8461E}
         <div style="height:60px;margin-top:-40px;position:relative;z-index:3;background:linear-gradient(to bottom,rgba(251,244,228,0),#FBF4E4);display:{{ fadeDisplay }}"></div>
         <button onClick="{{ toggleExpand }}" style="cursor:pointer;font-family:'Montserrat';font-size:14px;letter-spacing:.16em;font-weight:600;color:#12100E;background:#F6A623;border:none;padding:16px 42px;border-radius:999px;transition:transform .2s,box-shadow .3s;box-shadow:0 14px 30px -12px rgba(224,140,60,.7)" style-hover="transform:translateY(-2px)">{{ expandLabel }}</button>
 
-        <div style="margin-top:60px;padding:40px 44px;border-radius:24px;background:#12100E;color:#FBF4E4;display:flex;align-items:center;gap:24px;text-align:left">
+        <div data-reveal="" style="margin-top:60px;padding:40px 44px;border-radius:24px;background:#12100E;color:#FBF4E4;display:flex;align-items:center;gap:24px;text-align:left;opacity:0;transform:translateY(40px);transition:1s">
           <img src="assets/star-hand.png" alt="" style="width:62px;height:62px;object-fit:contain;flex-shrink:0">
           <div style="flex:1">
             <div style="font-size:20px;color:#F6A623">Понравилось интервью?</div>
@@ -352,11 +383,11 @@ a:hover{color:#E8461E}
   <!-- ================= FOOTER ================= -->
   <footer style="position:relative;background:#12100E;color:#FBF4E4;overflow:hidden">
     <div style="height:10px;background:linear-gradient(90deg,#F6A623,#EE8FA7,#E8461E,#ED179A,#F6A623);background-size:200% 100%;animation:sheen 8s linear infinite"></div>
-    <div style="position:absolute;right:0;bottom:22px;width:180px;height:180px;opacity:.45;pointer-events:none;display:flex;justify-content:flex-end;animation:floatB 14s ease-in-out infinite"></div>
+    <div style="position:absolute;right:0;bottom:0;width:230px;height:230px;opacity:.9;pointer-events:none;display:flex;align-items:flex-end;justify-content:flex-end;animation:floatB 14s ease-in-out infinite"><img src="assets/star-hand.png" alt="" style="width: 400px; height: 300px; object-fit: contain; margin-top: -70px; margin-bottom: 100px; margin-right: -60px"></div>
     <div style="max-width:1240px;margin:0 auto;padding:80px 60px 50px;position:relative;z-index:2">
-      <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px">
+      <div class="mg" style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px">
         <div>
-          <img src="assets/logo-vspyshka-light.png" alt="ВСПЫШКА" style="object-fit: contain; display: block; width: 300px">
+          <img src="assets/logo-vspyshka-light.png" alt="ВСПЫШКА" style="object-fit: contain; display: block; width: 350px; margin-left: -50px; margin-top: -25px">
           
         </div>
         <div>
@@ -494,7 +525,7 @@ class Component extends DCLogic {
   go(page, patch){ this.setState(Object.assign({page, expanded:false}, patch||{})); if(typeof window!=='undefined') window.scrollTo({top:0,behavior:'auto'}); }
 
   componentDidMount(){
-    this._scale = ()=>{ document.documentElement.style.zoom = String(window.innerWidth/1440); };
+    this._scale = ()=>{ const w=window.innerWidth; document.documentElement.style.zoom = w>768 ? String(w/1440) : '1'; };
     this._scale(); window.addEventListener('resize', this._scale);
     this._onScroll = ()=>{ const s = window.scrollY > 520; if(s !== this.state.navScrolled) this.setState({navScrolled:s}); };
     window.addEventListener('scroll', this._onScroll, {passive:true});
